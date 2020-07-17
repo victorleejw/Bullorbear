@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="{% static 'bull_bear/images/favicon.ico' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'bull_bear/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bull_bear/index.css' %}" />
+    <title>
+      BULL or BEAR: Market sentiment analysis powered by machine learning
+    </title>
+  </head>
+  <body>
+    <div class="container">
+      {% block top_popout %} {% endblock top_popout %}
+      <div class="title">
+        <h1>
+          <span style="color: darkgreen;"
+            >BULL
+            <img
+              class="title-animal-icon"
+              src="{% static 'bull_bear/images/bull_icon.png' %}"
+              alt="bull_icon" />
+            <img
+              class="title-chart-icon"
+              src="{% static 'bull_bear/images/increase_icon.png' %}"
+              alt="increase_icon"
+          /></span>
+          <span style="font-size: 2rem;">or</span>
+          <span style="color: darkred;"
+            >BEAR
+            <img
+              class="title-animal-icon"
+              src="{% static 'bull_bear/images/bear_icon.png' %}"
+              alt="bear_icon" />
+            <img
+              class="title-chart-icon"
+              src="{% static 'bull_bear/images/decrease_icon.png' %}"
+              alt="decrease_icon"
+          /></span>
+        </h1>
+      </div>
+
+      <div class="desc">
+        <h3>
+          <img
+            class="desc-icon"
+            src="{% static 'bull_bear/images/money_icon.png' %}"
+            alt="money_icon"
+          />
+          Market Sentiment Analysis powered by AI
+          <img
+            class="desc-icon"
+            src="{% static 'bull_bear/images/ai_icon.png' %}"
+            alt="ai_icon"
+          />
+        </h3>
+      </div>
+
+      <div class="form">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="url"
+              name="url"
+              placeholder="Paste any finance news URL: Yahoo Finance..."
+              required
+            />
+          </div>
+          <button type="submit" class="btn">
+            GET RESULTS
+            <img
+              class="button-icon"
+              src="{% static 'bull_bear/images/results_icon.png' %}"
+              alt="results_icon"
+            />
+          </button>
+        </form>
+      </div>
+
+      {% block content %} {% endblock content %}
+
+      {% block footer %} {% endblock footer %}
+      
+    </div>
+  </body>
+</html>

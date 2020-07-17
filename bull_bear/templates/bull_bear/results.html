@@ -1,0 +1,170 @@
+{% extends 'bull_bear/base.html' %}
+{% load static %}
+
+{% block top_popout %}
+<div class="top-popout">
+  <span>Thank you 😍 for your support 🙏 & vote 👍 at Product Hunt</span>
+  <a href="https://www.producthunt.com/posts/bull-or-bear?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-bull-or-bear" target="_blank">
+  <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=216099&theme=light" alt="BULL or BEAR - Market sentiment analysis powered by AI | Product Hunt Embed" style="width: 240px; height: 45px;" width="240px" height="45px" /></a>
+</div>
+{% endblock top_popout %}
+
+{% block content %}
+<div class="main-content">
+  <div class="card-list">
+    <div class="bull-card bull-card-border">
+      <div>
+        {% if result == 'positive' %}
+          <p>{{confidence_score|floatformat:0}}%</p>
+        <p style="font-size:1rem;">confidence</p>
+        {% endif %}
+        <p>BULL</p>
+        <p>
+          <img
+            class="card-animal-icon"
+            src="{% static 'bull_bear/images/bull_icon.png' %}"
+            alt="bull_icon"
+          />
+          <img
+            class="card-chart-icon"
+            src="{% static 'bull_bear/images/increase_icon.png' %}"
+            alt="increase_icon"
+          />
+        </p>
+      </div>
+    </div>
+    <div class="neutral-card neutral-card-border">
+      <div>
+        {% if result == 'neutral' %}
+          <p>{{confidence_score|floatformat:0}}%</p>
+          <p style="font-size:1rem;">confidence</p>
+          {% endif %}
+        <p>NEUTRAL</p>
+        <p>
+          <img
+            class="card-animal-icon"
+            src="{% static 'bull_bear/images/finger_crossed_icon.png' %}"
+            alt="finger_crossed_icon"
+          />
+
+        </p>
+      </div>
+    </div>
+    <div class="bear-card bear-card-border">
+      <div>
+        {% if result == 'negative' %}
+          <p>{{confidence_score|floatformat:0}}%</p>
+          <p style="font-size:1rem;">confidence</p>
+          {% endif %}
+        <p>BEAR</p>
+        <p>
+          <img
+            class="card-animal-icon"
+            src="{% static 'bull_bear/images/bear_icon.png' %}"
+            alt="bear_icon"
+          />
+          <img
+            class="card-chart-icon"
+            src="{% static 'bull_bear/images/decrease_icon.png' %}"
+            alt="decrease_icon"
+          />
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let bullResult = document.querySelector(".bull-card");
+    let neutralResult = document.querySelector(".neutral-card");
+    let bearResult = document.querySelector(".bear-card");
+    let mediaSmallMobile = window.matchMedia("(max-width: 500px)");
+  </script>
+
+  {% if result != 'positive' %}
+    <script>
+      if (mediaSmallMobile.matches) {bullResult.remove();}
+      else {bullResult.classList.add("grey-card-border");}
+    </script>
+  {% endif %}
+  {% if result != 'neutral' %}
+    <script>
+      if (mediaSmallMobile.matches) {neutralResult.remove();}
+      else {neutralResult.classList.add("grey-card-border");}
+    </script>
+  {% endif %}
+  {% if result != 'negative' %}
+    <script>
+      if (mediaSmallMobile.matches) {bearResult.remove();}
+      else {bearResult.classList.add("grey-card-border");}
+    </script>
+  {% endif %}
+
+  <div class="summary">
+    <h2 class="content-title">
+      Summary
+      <img
+        class="content-title-icon"
+        src="{% static 'bull_bear/images/summary_icon.png' %}"
+        alt="summary_icon"
+      />
+      :
+    </h2>
+    {% for summary in summaries %}
+    <ul>
+      <li>{{summary}}</li>
+    </ul>
+    {% endfor %}
+  </div>
+
+  <div class="keywords">
+    <h2 class="content-title">
+      Keywords
+      <img
+        class="content-title-icon"
+        src="{% static 'bull_bear/images/keywords_icon.png' %}"
+        alt="keywords_icon"
+      />
+      :
+    </h2>
+    <p>
+      {% for keyword in keywords %}
+        <span>{{keyword}}</span>&nbsp;
+      {% endfor %}
+    </p>
+  </div>
+
+  <div class="other-searches">
+    <h2 class="content-title">
+      Other searches
+      <img
+        class="content-title-icon"
+        src="{% static 'bull_bear/images/searches_icon.png' %}"
+        alt="searches_icon"
+      />
+      :
+    </h2>
+    {% for link in other_searches %}
+      <p><a href={{link}} target="_blank">{{link}}</a></p>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock content %}
+
+{% block footer %}
+<div style="margin-top: auto; width: 100%;">
+<hr />
+      
+<footer class="footer">
+  <div></div>
+  <div>
+    <span>Created by: </span>
+    <a href="https://www.bitcurate.com/" target="_blank">Bitcurate</a>,
+    <a href="https://github.com/victorleejw" target="_blank">Victor</a>,
+    <a href="https://github.com/siewchongche" target="_blank">Siew</a> &
+    <a href="https://github.com/mandyzi" target="_blank">Mandy</a>
+  </div>
+</footer>
+</div>
+{% endblock %}

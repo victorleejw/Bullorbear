@@ -1,0 +1,1 @@
+web: gunicorn bull_bear_project.wsgi --log-file -

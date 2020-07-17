@@ -1,0 +1,55 @@
+{% extends 'bull_bear/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main-content">
+        <div class="error-content">
+
+            <img class="error-meme-img" src="{% static 'bull_bear/images/error_meme.png' %}" alt="error_meme">
+            <h3>Oops!
+                <img class="error-msg-icon" src="{% static 'bull_bear/images/emoji_icon.png' %}" alt="emoji_icon">
+                Don't panic. Keep breathing
+                <img class="error-msg-icon" src="{% static 'bull_bear/images/breath_icon.png' %}" alt="breath_icon">
+                , stay calm
+                <img class="error-msg-icon" src="{% static 'bull_bear/images/calm_icon.png' %}" alt="calm_icon">
+                & meme, or give <u>another URL a try again!</u>
+                <img class="error-msg-icon" src="{% static 'bull_bear/images/like_icon.png' %}" alt="like_icon">
+            </h3>
+
+            <br />
+
+            <div class="other-searches">
+                <h2 class="content-title">
+                  Other searches
+                  <img
+                    class="content-title-icon"
+                    src="{% static 'bull_bear/images/searches_icon.png' %}"
+                    alt="searches_icon"
+                  />
+                  :
+                </h2>
+                {% for link in other_searches %}
+                  <p><a href={{link}} target="_blank">{{link}}</a></p>
+                {% endfor %}
+              </div>
+
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+<div style="margin-top: auto; width: 100%;">
+<hr />
+      
+<footer class="footer">
+  <div></div>
+  <div>
+    <span>Created by: </span>
+    <a href="https://www.bitcurate.com/" target="_blank">Bitcurate</a>,
+    <a href="https://github.com/victorleejw" target="_blank">Victor</a>,
+    <a href="https://github.com/siewchongche" target="_blank">Siew</a> &
+    <a href="https://github.com/mandyzi" target="_blank">Mandy</a>
+  </div>
+</footer>
+</div>
+{% endblock %}

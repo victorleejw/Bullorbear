@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap");
+
+html,
+body {
+  font-family: "Poppins", "Rubik", sans-serif;
+  background-color: rgb(255, 250, 219);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p,
+a {
+  font-size: 1.2rem;
+}
+
+.top-popout {
+  position: fixed;
+  transform: translateY(-100px);
+  background-color: rgb(26, 26, 172);
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  overflow: hidden;
+  animation-name: slidedown;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  box-shadow: 0 0 10px black;
+  z-index: 99;
+}
+
+.top-popout > a {
+  color: whitesmoke;
+}
+
+@keyframes slidedown {
+  from {transform: translateY(-100px);}
+  to {transform: translateY(0px);}
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 70%;
+  margin-bottom: 2rem;
+}
+
+.title {
+  margin: 6rem 1rem 1rem 1rem;
+}
+
+.title-animal-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.title-chart-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.desc {
+  margin: 0rem 1rem 2rem 1rem;
+}
+
+.desc-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.form {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: gold;
+  border: 2px solid black;
+  border-radius: 3rem;
+}
+
+.button-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.main-content {
+  border: 1px solid darkgrey;
+  border-radius: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  width: 100%;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.bull-card,
+.bear-card,
+.neutral-card {
+  width: 14rem;
+  height: 14rem;
+  margin: 2rem 0 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bull-card-border {
+  border: 3px solid darkgreen;
+  background-color: rgb(228, 255, 228);
+}
+
+.bear-card-border {
+  border: 3px solid darkred;
+  background-color: rgb(255, 228, 228);
+}
+
+.neutral-card-border {
+  border: 3px solid darkblue;
+  background-color: rgb(228, 228, 255);
+}
+
+.grey-card-border {
+  /* border: 3px solid darkgrey; */
+  /* background-color: rgb(200, 200, 200); */
+  filter: grayscale(100%);
+  transform: scale(0.8);
+}
+
+.bull-card > div > p {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: darkgreen;
+}
+
+.bear-card > div > p {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: darkred;
+}
+
+.neutral-card > div > p {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.card-animal-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.card-chart-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.content-title {
+  color: darkblue;
+}
+
+.content-title-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.summary,
+.keywords,
+.other-searches {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+hr {
+  background-color: black;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.error-content {
+  margin: 2rem;
+}
+
+.error-meme-img {
+  width: 15rem;
+  height: 15rem;
+  margin-bottom: 1rem;
+}
+
+.error-msg-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+@media (max-width: 800px) {
+  .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p,
+  a {
+    font-size: 1rem;
+  }
+
+  .other-searches > p {
+    word-wrap: break-word;
+  }
+
+  .title-animal-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .title-chart-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .desc-icon,
+  .button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .bull-card,
+  .bear-card,
+  .neutral-card {
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem 0 1rem 0;
+  }
+
+  .bull-card > div > p,
+  .bear-card > div > p,
+  .neutral-card > div > p {
+    font-size: 2rem;
+  }
+
+  .card-animal-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .card-chart-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .content-title-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .error-meme-img {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+  }
+
+  .error-msg-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
